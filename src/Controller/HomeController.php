@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(CallApiService $callApiService): Response
     {
         //test du fonctionnement de la récupération de données sur l'API
-        dd($callApiService->getGenerationPokemonData();
+        dd($callApiService->getGenerationPokemonData());
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
