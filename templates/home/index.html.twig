@@ -17,7 +17,22 @@
 {% endblock %}
 
 {% block body %}
+{#  AJOUTER BOUTON POUR TRIER LES POKEMON  #}
 <section id="tricks" class="py-5">
+    <div class="my-5 container">
+        <div class="row row-cols-1 justify-content-center text-center align-items-center ">
+{#            <button type="button" class="btn-primary" onclick="" data-bs-dismiss="modal"></button>#}
+            <div class="col-4">
+                <a class="col-4 btn btn-primary btn-sort" href="/" role="button">Numéro National</a>
+            </div>
+            <div class="col-4">
+                <a class="col-4 btn btn-primary btn-sort" href="/?tri=name" role="button">Nom</a>
+            </div>
+            <div class="col-4">
+                <a class="col-4 btn btn-primary btn-sort" href="/?tri=types" role="button">Types</a>
+            </div>
+        </div>
+    </div>
     <div class="my-5 container-fluid">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 justify-content-center text-center align-items-center ">
             {% for pokemon in pokemonsSorted %}
@@ -25,8 +40,14 @@
                     <div class="card" style="width: 100%">
                         <img class="card-img-top" src="{{ pokemon['sprites']['front_default'] }}" alt="Card image cap"/>
                         <div class="card-body row">
-                            <a class="col" href="/pokemon/{{ pokemon['id'] }}">{{ pokemon['name']|capitalize }}</a>
-                            <p class="col">n°{{ pokemon['id'] }}</p>
+                            <a class="col-6" href="/pokemon/{{ pokemon['id'] }}">{{ pokemon['name']|capitalize }}</a>
+                            <p class="col-6">n°{{ pokemon['id'] }}</p>
+                            {% if pokemon['types'][1] is defined %}
+                                <p class="col-6 {{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name'] }}</p>
+                                <p class="col-6 {{ pokemon['types'][1]['type']['name'] }}">{{ pokemon['types'][1]['type']['name'] }}</p>
+                            {% else %}
+                                <p class="col-12 {{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name'] }}</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

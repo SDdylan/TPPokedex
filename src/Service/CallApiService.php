@@ -13,7 +13,36 @@ class CallApiService
         $this->client = $client;
     }
 
-    public function getGenerationPokemonData()
+    //Récupération d'un pokémon en fonction de son ID
+    public function getPokemonData($id): array
+    {
+        $response = $this->client->request(
+            'GET',
+            'https://pokeapi.co/api/v2/pokemon/' . $id
+        );
+
+        $pokemon = $response->toArray();
+
+        //Ajout de le description du pokémon
+        $response = $this->client->request(
+            'GET',
+            'https://pokeapi.co/api/v2/pokemon-species/' . $id
+        );
+
+        $pokemonSpecies = $response->toArray();
+        //$description = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
+
+        //On ajoute la description du pokemon à l'array $pokemon
+        //array_push($pokemon, $pokemonSpecies['flavor_text_entries'][0]['flavor_text']);
+        $pokemon['description'] = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
+        dump($pokemon);
+        //dd($pokemon);
+        return $pokemon;
+
+    }
+
+    //Récupération de tout les pokémons d'une génération
+    public function getGenerationPokemonData(): array
     {
         $response = $this->client->request(
             'GET',
@@ -34,18 +63,10 @@ class CallApiService
             $arrayPokemon = $response->toArray();
             array_push($arrayDataPokemon, $arrayPokemon);
         }
-//        dd($arrayDataPokemon);
         return $arrayDataPokemon;
     }
 
-//    //fonction pour trier la liste de pokemon par numéro national
-//    public function sortGenerationPokemonById($generationPokemon): array
-//    {
-//        $generationPokemonTri = new ArrayObject($generationPokemon);
-//
-//        return usort($generationPokemon, $generationPokemon['id']);
-//    }
-
+    //fonction pour trier la liste de pokemon par un attribut en particulier
     function sortGenerationPokemon($arrayPokemon, $field, $order=SORT_ASC)
     {
         $new_array = array();

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{pokemon['name']}}{% endblock %}
+
+{#{% block header %}#}
+{#    <header class="py-1 bg-image-full d-flex" #}{# # style="background-image: url('{{ asset('img/home.jpeg') }}');"#}{#>#}
+{#        <div class="container position-relative px-4 px-lg-5">#}
+{#            <div class="row gx-4 gx-lg-5 justify-content-center">#}
+{#                <div class="col-md-10 col-lg-8 col-xl-7" style="margin-top: 7em">#}
+{#                    <div class="text-center my-5">#}
+{#                        <div class="p-2"><h1 class="fw-bolder">{{ pokemon['name']|capitalize }} - Génération {{ generation }}</h1></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </header>#}
+{#{% endblock %}#}
+
+{% block body %}
+    <article class="container">
+        <div class="row">
+            {# Nom et Numéro National du Pokemon #}
+            <div class="title-pokemon d-flex justify-content-center">
+                <h1 class="p-3">{{ pokemon['name']|upper }}</h1>
+                <h1 class="p-3">
+                    {% if pokemon['id'] < 10 %}
+                        n°00{{ pokemon['id'] }}
+                    {% elseif (pokemon['id'] > 10) and (pokemon['id'] < 100) %}
+                        n°0{{ pokemon['id'] }}
+                    {% else %}
+                        n°{{ pokemon['id'] }}
+                    {% endif %}
+                </h1>
+            </div>
+            {# Infos du pokémon #}
+            <div class="info-pokemon d-flex justify-content-center">
+                {# Image du pokémon #}
+                <div class="col-6 img-pokemon">
+                    <img width="100%" src="{{ pokemon['sprites']['front_default'] }}"/>
+                </div>
+                {# Details et description du pokémon #}
+                <section class="col-6">
+                    <h2>Description</h2>
+                    <div class="description-pokemon d-flex justify-content-left">
+                        <p class="col-12">{{ pokemon["description"] }}</p>
+                    </div>
+                    <h2>Stats</h2>
+                    <div class="stats-pokemon d-flex justify-content-center">
+                        <div class="col-6">
+                            <p>{{ pokemon["stats"][0]['stat']['name'] }} : {{ pokemon["stats"][0]['base_stat'] }}</p>
+                            <p>{{ pokemon["stats"][1]['stat']['name'] }} : {{ pokemon["stats"][1]['base_stat'] }}</p>
+                            <p>{{ pokemon["stats"][2]['stat']['name']}} : {{ pokemon["stats"][2]['base_stat'] }}</p>
+                        </div>
+                        <div class="col-6">
+                            <p>{{ pokemon["stats"][3]['stat']['name'] }} : {{ pokemon["stats"][3]['base_stat'] }}</p>
+                            <p>{{ pokemon["stats"][4]['stat']['name'] }} : {{ pokemon["stats"][4]['base_stat'] }}</p>
+                            <p>{{ pokemon["stats"][5]['stat']['name']}} : {{ pokemon["stats"][5]['base_stat'] }}</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+{% endblock %}
