@@ -4,12 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)">
+    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="added webpack encore for a custom css&#10;Modified base.html.twig &amp; index.html.twig for the homepage display&#10;Added possibility to sort by id, name or type in the homepage (need button for the user)&#10;Added route to details pokemon&#10;Modified css sheet">
+      <change afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/controllers/hello_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/detail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/CallApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallApiService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +174,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="2KB3c4ioTATjNn7pw6ubEZD5VmO" />
@@ -237,6 +254,8 @@
     <MESSAGE value="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php" />
     <MESSAGE value="Created an array &amp; a foreach loop to have more data for each pokemon (image, types, ...) in CallApiService.php&#10;Warning ! : Need to add the env variable for the generation." />
     <MESSAGE value="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)" />
+    <MESSAGE value="added webpack encore for a custom css&#10;Modified base.html.twig &amp; index.html.twig for the homepage display&#10;Added possibility to sort by id, name or type in the homepage (need button for the user)" />
+    <MESSAGE value="added webpack encore for a custom css&#10;Modified base.html.twig &amp; index.html.twig for the homepage display&#10;Added possibility to sort by id, name or type in the homepage (need button for the user)&#10;Added route to details pokemon&#10;Modified css sheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="added webpack encore for a custom css&#10;Modified base.html.twig &amp; index.html.twig for the homepage display&#10;Added possibility to sort by id, name or type in the homepage (need button for the user)&#10;Added route to details pokemon&#10;Modified css sheet" />
   </component>
 </project>
