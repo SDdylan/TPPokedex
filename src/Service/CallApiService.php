@@ -52,15 +52,19 @@ class CallApiService
         $sortable_array = array();
 
         if (count($arrayPokemon) > 0) {
-            foreach ($arrayPokemon as $k => $v) {
-                if (is_array($v)) {
-                    foreach ($v as $k2 => $v2) {
-                        if ($k2 == $field) {
-                            $sortable_array[$k] = $v2;
+            foreach ($arrayPokemon as $keyPokemon => $pokemon) {
+                if (is_array($pokemon)) {
+                    foreach ($pokemon as $pokemonFieldName => $pokemonFieldValue) {
+                        if ($pokemonFieldName == $field) {
+                            if(is_array($pokemonFieldValue)) {
+                                $sortable_array[$keyPokemon] = $pokemonFieldValue[0]['type']['name'];
+                            } else {
+                                $sortable_array[$keyPokemon] = $pokemonFieldValue;
+                            }
                         }
                     }
                 } else {
-                    $sortable_array[$k] = $v;
+                    $sortable_array[$keyPokemon] = $pokemon;
                 }
             }
 

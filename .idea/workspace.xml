@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="Created an array &amp; a foreach loop to have more data for each pokemon (image, types, ...) in CallApiService.php&#10;Warning ! : Need to add the env variable for the generation.">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/CallApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallApiService.php" afterDir="false" />
     </list>
@@ -192,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673434224677</updated>
       <workItem from="1673434225864" duration="15286000" />
-      <workItem from="1673516847855" duration="3938000" />
+      <workItem from="1673516847855" duration="10646000" />
     </task>
     <task id="LOCAL-00001" summary="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php">
       <created>1673450880778</created>
@@ -208,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673458200969</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)">
+      <created>1673521428867</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673521428867</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +236,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php" />
     <MESSAGE value="Created an array &amp; a foreach loop to have more data for each pokemon (image, types, ...) in CallApiService.php&#10;Warning ! : Need to add the env variable for the generation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created an array &amp; a foreach loop to have more data for each pokemon (image, types, ...) in CallApiService.php&#10;Warning ! : Need to add the env variable for the generation." />
+    <MESSAGE value="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ENV['POKEMON_GENERATION']&#10;All pokemon data is now pushed in $arrayDataPokemon in CallApiService.php&#10;Added a function to sort (by ID, Name or Type - WARNING : 2 type possible so it's also an array)" />
   </component>
 </project>
