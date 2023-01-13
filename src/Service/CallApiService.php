@@ -41,7 +41,6 @@ class CallApiService
         $pokemon['shape'] = $pokemonSpecies['shape']['name'];
 
         return $pokemon;
-
     }
 
     //Récupération de tout les pokémons d'une génération
@@ -57,19 +56,49 @@ class CallApiService
         //création d'un array de array pour stocker l'image et le type en plus de l'url et le nom
         $arrayDataPokemon = array();
 
-        foreach ($arrayDataGen['pokemon_species'] as $pokemon_specy)
+        $apiCallsPokemon = curl_multi_init();
+        $curl_arr = array();
+        $speciesCount = count($arrayDataGen['pokemon_species']);
+        //foreach ($arrayDataGen['pokemon_species'] as $pokemonSpecy)
+        for($i = 0; $i < $speciesCount; $i++)
         {
             //On isole le numéro national car l'API renvoit parfois des erreurs avec le nom du pokémon
-            $arrayExplodeUrl =  explode('https://pokeapi.co/api/v2/pokemon-species/', $pokemon_specy['url']);
-            $nationalIdPokemon = $arrayExplodeUrl[1];
-
-            $response = $this->client->request(
-                'GET',
-                'https://pokeapi.co/api/v2/pokemon/' . $nationalIdPokemon
-            );
-            $arrayPokemon = $response->toArray();
-            array_push($arrayDataPokemon, $arrayPokemon);
+            $arrayExplodeUrl =  explode('https://pokeapi.co/api/v2/pokemon-species/', $arrayDataGen['pokemon_species'][$i]['url']);
+            $url = 'https://pokeapi.co/api/v2/pokemon/' . $arrayExplodeUrl[1];
+            $curl_arr[$i] = curl_init($url);
+            curl_setopt($curl_arr[$i], CURLOPT_RETURNTRANSFER, true);
+            curl_multi_add_handle($apiCallsPokemon, $curl_arr[$i]);
+//            $nationalIdPokemon = $arrayExplodeUrl[1];
+//
+//            $response = $this->client->request(
+//                'GET',
+//                'https://pokeapi.co/api/v2/pokemon/' . $nationalIdPokemon
+//            );
+//            $arrayPokemon = $response->toArray();
+//            array_push($arrayDataPokemon, $arrayPokemon);
         }
+
+        do {
+            curl_multi_exec($apiCallsPokemon,$running);
+            curl_multi_select($apiCallsPokemon);
+            print_r($running . " ");
+        } while($running > 0);
+
+        print_r("\n");
+
+        for($j = 0; $j < $speciesCount; $j++)
+        {
+            $data = curl_multi_getcontent($curl_arr[$j]);
+            print_r("2023");
+            print_r($data);
+            $json_data = json_encode($data);
+            //dd($json_data);
+            array_push($arrayDataPokemon, $json_data);
+//            $results = curl_multi_getcontent  ( $curl_arr[$i]  );
+//            echo( $i . "\n" . $results . "\n");
+        }
+        //curl_multi_close($apiCallsPokemon);
+        dd($arrayDataPokemon);
         return $arrayDataPokemon;
     }
 
