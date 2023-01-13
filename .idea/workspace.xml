@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="added CSS class for the types&#10;modified CSS for the sorting buttons in the homepage&#10;Deleted useless code in CallApiService.php &amp; modified getGenerationDataPokemon to get data of pokemons by id and not by name anymore&#10;Simplified display of stat in detail.html.twig&#10;Modified bootstrap class in index.html.twig for a better display of the pokedex">
+    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="added CSS for detail pokemon page&#10;modified display of detail page &amp; added a &quot;go back&quot; button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CallApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallApiService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/detail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +193,7 @@
       <updated>1673434224677</updated>
       <workItem from="1673434225864" duration="15286000" />
       <workItem from="1673516847855" duration="10646000" />
-      <workItem from="1673603523546" duration="9230000" />
+      <workItem from="1673603523546" duration="12114000" />
     </task>
     <task id="LOCAL-00001" summary="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php">
       <created>1673450880778</created>
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673609774465</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added CSS for detail pokemon page&#10;modified display of detail page &amp; added a &quot;go back&quot; button">
+      <created>1673613272740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673613272740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +270,7 @@
     <MESSAGE value="added webpack encore for a custom css&#10;Modified base.html.twig &amp; index.html.twig for the homepage display&#10;Added possibility to sort by id, name or type in the homepage (need button for the user)&#10;Added route to details pokemon&#10;Modified css sheet" />
     <MESSAGE value="added btn-sort class to css (will use later)&#10;added function to get data of 1 pokemon via ID &amp; deleted useless code in CallApiService.php&#10;created view to see detail of  pokemon (Actually : image, description, numer, name, stats)&#10;Added button to sort generation by name/id/types" />
     <MESSAGE value="added CSS class for the types&#10;modified CSS for the sorting buttons in the homepage&#10;Deleted useless code in CallApiService.php &amp; modified getGenerationDataPokemon to get data of pokemons by id and not by name anymore&#10;Simplified display of stat in detail.html.twig&#10;Modified bootstrap class in index.html.twig for a better display of the pokedex" />
-    <option name="LAST_COMMIT_MESSAGE" value="added CSS class for the types&#10;modified CSS for the sorting buttons in the homepage&#10;Deleted useless code in CallApiService.php &amp; modified getGenerationDataPokemon to get data of pokemons by id and not by name anymore&#10;Simplified display of stat in detail.html.twig&#10;Modified bootstrap class in index.html.twig for a better display of the pokedex" />
+    <MESSAGE value="added CSS for detail pokemon page&#10;modified display of detail page &amp; added a &quot;go back&quot; button" />
+    <option name="LAST_COMMIT_MESSAGE" value="added CSS for detail pokemon page&#10;modified display of detail page &amp; added a &quot;go back&quot; button" />
   </component>
 </project>

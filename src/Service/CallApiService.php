@@ -34,7 +34,12 @@ class CallApiService
 
         //On ajoute la description du pokemon à l'array $pokemon
         $pokemon['description'] = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
-        dump($pokemon);
+
+        //on change le poids et la taille pour un affichage en kilogrammes et en mètres
+        $pokemon['weight'] = floatval($pokemon['weight'])/10;
+        $pokemon['height'] = floatval($pokemon['height'])/10;
+        $pokemon['shape'] = $pokemonSpecies['shape']['name'];
+
         return $pokemon;
 
     }

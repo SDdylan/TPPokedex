@@ -2,8 +2,6 @@ body {
     background-color: lightgray;
 }
 .pokemon-home {
-    /*border: solid #000;*/
-    /*border-width: 0 1px;*/
     margin-bottom: 2em;
 }
 
@@ -19,8 +17,14 @@ body {
     padding: 1em;
 }
 
+.attributes-pokemon{
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 0.7em;
+}
+
 .stats-pokemon{
-    padding-top: 0.5em;
+    padding: 0.5em;
     background-color: white;
     border-radius: 0.7em;
 }
