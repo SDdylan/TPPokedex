@@ -7,6 +7,40 @@ body {
     margin-bottom: 2em;
 }
 
+.info-pokemon {
+
+}
+
+.detail-pokemon {
+    padding: 1em;
+}
+
+.type-pokemon {
+    padding: 1em;
+}
+
+.stats-pokemon{
+    padding-top: 0.5em;
+    background-color: white;
+    border-radius: 0.7em;
+}
+
+.description-pokemon {
+    padding: 0.5em;
+    font-style: italic;
+    background-color: white;
+    border-radius: 0.7em;
+}
+
+.img-pokemon{
+    border: 0.3em solid black;
+    border-radius: 0.7em;
+}
+
+.btn-back{
+    padding: 1em;
+}
+
 .btn-sort {
     width: 100%;
     font-weight: bold;

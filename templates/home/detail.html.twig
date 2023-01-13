@@ -33,29 +33,42 @@
                 </h1>
             </div>
             {# Infos du pokémon #}
-            <div class="info-pokemon d-flex justify-content-center">
+            <div class="info-pokemon d-flex justify-content-center row">
                 {# Image du pokémon #}
-                <div class="col-6 img-pokemon">
-                    <img width="100%" src="{{ pokemon['sprites']['front_default'] }}" alt="pokemon-{{ pokemon['id'] }}"/>
-                </div>
+                <section class="col-sm-6 col-xs-12 visual-pokemon text-center align-items-center">
+                    <img class="img-pokemon" width="100%" src="{{ pokemon['sprites']['front_default'] }}" alt="pokemon-{{ pokemon['id'] }}"/>
+                    <div class="type-pokemon row">
+                        {% if pokemon['types'][1] is defined %}
+                            <p class="col-12 col-sm-6 type-{{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name']|upper }}</p>
+                            <p class="col-12 col-sm-6 type-{{ pokemon['types'][1]['type']['name'] }}">{{ pokemon['types'][1]['type']['name']|upper }}</p>
+                        {% else %}
+                            <p class="col-12 type-{{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name']|upper }}</p>
+                        {% endif %}
+                    </div>
+                </section>
                 {# Details et description du pokémon #}
-                <section class="col-6">
+                <section class="col-sm-6 col-xs-12 detail-pokemon">
                     <h2>Description</h2>
                     <div class="description-pokemon d-flex justify-content-left">
                         <p class="col-12">{{ pokemon["description"] }}</p>
                     </div>
-                    <h2>Stats</h2>
-                    <div class="stats-pokemon d-flex justify-content-center">
-                        <div class="col-6">
-                            {% for pokemonStat in pokemon["stats"]|slice(0,3) %}
-                                <p>{{ pokemonStat['stat']['name'] }} : {{ pokemonStat['base_stat'] }}</p>
-                            {% endfor %}
+                    <div class="stats-block-pokemon">
+                        <h2>Stats</h2>
+                        <div class="stats-pokemon d-flex justify-content-center row">
+                            <div class="col-12 col-sm-6">
+                                {% for pokemonStat in pokemon["stats"]|slice(0,3) %}
+                                    <p><strong>{{ pokemonStat['stat']['name']|upper }} :</strong> {{ pokemonStat['base_stat'] }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% for pokemonStat in pokemon["stats"]|slice(3,5) %}
+                                    <p><strong>{{ pokemonStat['stat']['name']|upper }} :</strong> {{ pokemonStat['base_stat'] }}</p>
+                                {% endfor %}
+                            </div>
                         </div>
-                        <div class="col-6">
-                            {% for pokemonStat in pokemon["stats"]|slice(3,5) %}
-                                <p>{{ pokemonStat['stat']['name'] }} : {{ pokemonStat['base_stat'] }}</p>
-                            {% endfor %}
-                        </div>
+                    </div>
+                    <div class="btn-back d-flex justify-content-center">
+                        <a class="btn btn-primary" href="/">Retour</a>
                     </div>
                 </section>
             </div>
