@@ -33,10 +33,8 @@ class CallApiService
         //$description = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
 
         //On ajoute la description du pokemon à l'array $pokemon
-        //array_push($pokemon, $pokemonSpecies['flavor_text_entries'][0]['flavor_text']);
         $pokemon['description'] = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
         dump($pokemon);
-        //dd($pokemon);
         return $pokemon;
 
     }
@@ -56,9 +54,13 @@ class CallApiService
 
         foreach ($arrayDataGen['pokemon_species'] as $pokemon_specy)
         {
+            //On isole le numéro national car l'API renvoit parfois des erreurs avec le nom du pokémon
+            $arrayExplodeUrl =  explode('https://pokeapi.co/api/v2/pokemon-species/', $pokemon_specy['url']);
+            $nationalIdPokemon = $arrayExplodeUrl[1];
+
             $response = $this->client->request(
                 'GET',
-                'https://pokeapi.co/api/v2/pokemon/' . $pokemon_specy['name']
+                'https://pokeapi.co/api/v2/pokemon/' . $nationalIdPokemon
             );
             $arrayPokemon = $response->toArray();
             array_push($arrayDataPokemon, $arrayPokemon);
