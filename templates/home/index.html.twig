@@ -3,7 +3,7 @@
 {% block title %}Pokédex{% endblock %}
 
 {% block header %}
-    <header class="py-1 bg-image-full d-flex" {# # style="background-image: url('{{ asset('img/home.jpeg') }}');"#}>
+    <header class="py-1 bg-image-full d-flex">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7" style="margin-top: 7em">
@@ -22,16 +22,17 @@
     <div class="my-5 container">
         <div class="row row-cols-10 row-cols-lg-4 justify-content-center text-center align-items-center ">
             <div class="col">
-                <a class="btn btn-primary btn-sort" href="/" role="button" >Numéro National</a>
+                <a class="btn btn-primary btn-sort" href="/" role="button" >National ID</a>
             </div>
             <div class="col">
-                <a class="btn btn-primary btn-sort" href="/?tri=name" role="button">Nom</a>
+                <a class="btn btn-primary btn-sort" href="/?tri=name" role="button">Name</a>
             </div>
             <div class="col">
                 <a class="btn btn-primary btn-sort" href="/?tri=types" role="button">Types</a>
             </div>
         </div>
     </div>
+    {# POKEDEX #}
     <div class="my-5 container-fluid">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 justify-content-center text-center align-items-center">
             {% for pokemon in pokemonsSorted %}

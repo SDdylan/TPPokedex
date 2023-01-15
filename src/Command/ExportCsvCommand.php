@@ -27,7 +27,6 @@ class ExportCsvCommand extends Command
     {
         $this
             ->addArgument('generation', InputArgument::OPTIONAL, 'Generation of pokémon to export to CSV (int)')
-//            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
             ->setHelp('This command allows you to export data from all the pokemon of a given generation')
         ;
     }
@@ -46,10 +45,9 @@ class ExportCsvCommand extends Command
                 'GET',
                 'https://pokeapi.co/api/v2/generation/' . $arg1
             );
-
             $arrayDataGen = $response->toArray();
 
-
+            // Ouverture/Création d'un fichier et exportation des données
             $out = fopen('pokemon.csv', 'w');
             fputcsv($out, array('name', 'id' ,'url'));
             foreach ($arrayDataGen['pokemon_species'] as $pokemonSpecy)

@@ -6,9 +6,6 @@ use App\Service\CallApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
-use Symfony\Component\VarDumper\Dumper\CliDumper;
 
 class HomeController extends AbstractController
 {
@@ -19,7 +16,7 @@ class HomeController extends AbstractController
     {
         $tri = 'id';
 
-        //test du fonctionnement de la récupération de données sur l'API
+        //Récupération de tout les pokémons d'une génération
         $pokemons = $callApiService->getGenerationPokemonData();
 
         //On regarde par quel paramètres on tri les pokémons
@@ -46,6 +43,7 @@ class HomeController extends AbstractController
      */
     public function showPokemon(CallApiService $callApiService, int $idPokemon): Response
     {
+        //Récupération des données du pokémon via un id
         $pokemon = $callApiService->getPokemonData($idPokemon);
 
         return $this->render('home/detail.html.twig', [

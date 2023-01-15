@@ -2,43 +2,44 @@
 
 namespace App\Service;
 
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-
 class CallApiService
 {
-    private $client;
-
-    public function __construct(HttpClientInterface $client)
-    {
-        $this->client = $client;
-    }
 
     //Récupération d'un pokémon en fonction de son ID
     public function getPokemonData($id): array
     {
-        $response = $this->client->request(
-            'GET',
-            'https://pokeapi.co/api/v2/pokemon/' . $id
-        );
 
-        $pokemon = $response->toArray();
+        //On crée un array pour stocker les url à utiliser
+        $nodes = array('https://pokeapi.co/api/v2/pokemon-species/' . $id, 'https://pokeapi.co/api/v2/pokemon/' . $id);
+        $node_count = count($nodes);
 
-        //Ajout de le description du pokémon
-        $response = $this->client->request(
-            'GET',
-            'https://pokeapi.co/api/v2/pokemon-species/' . $id
-        );
+        //On initialise un cURL multiple et on crée un array pour stocker ses résultats
+        $curlArr = array();
+        $master = curl_multi_init();
 
-        $pokemonSpecies = $response->toArray();
-        //$description = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
+        for($i = 0; $i < $node_count; $i++)
+        {
+            // URL à partir de laquelle les données seront récupérées
+            $curlArr[$i] = curl_init($nodes[$i]);
+            curl_setopt($curlArr[$i], CURLOPT_RETURNTRANSFER, true);
+            curl_multi_add_handle($master, $curlArr[$i]);
+        }
+
+        do {
+            curl_multi_exec($master,$running);
+        } while($running > 0);
+
+        //On stocke le résultat des requêtes dans des variables
+        $pokemonSpecy = json_decode(curl_multi_getcontent  ($curlArr[0]), true);
+        $pokemon = json_decode(curl_multi_getcontent  ($curlArr[1]), true);
 
         //On ajoute la description du pokemon à l'array $pokemon
-        $pokemon['description'] = $pokemonSpecies['flavor_text_entries'][0]['flavor_text'];
+        $pokemon['description'] = $pokemonSpecy['flavor_text_entries'][0]['flavor_text'];
 
         //on change le poids et la taille pour un affichage en kilogrammes et en mètres
         $pokemon['weight'] = floatval($pokemon['weight'])/10;
         $pokemon['height'] = floatval($pokemon['height'])/10;
-        $pokemon['shape'] = $pokemonSpecies['shape']['name'];
+        $pokemon['shape'] = $pokemonSpecy['shape']['name'];
 
         return $pokemon;
     }
@@ -46,64 +47,57 @@ class CallApiService
     //Récupération de tout les pokémons d'une génération
     public function getGenerationPokemonData(): array
     {
-        $response = $this->client->request(
-            'GET',
-            'https://pokeapi.co/api/v2/generation/' . $_ENV['POKEMON_GENERATION']
-        );
+        //Récupération des données de la génération de pokémon (pour l'id de chaque pokémon)
+        $curl = curl_init();
 
-        $arrayDataGen = $response->toArray();
+        // configuration des options
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://pokeapi.co/api/v2/generation/' . $_ENV['POKEMON_GENERATION'],
+            CURLOPT_RETURNTRANSFER => 1
+        ]);
 
-        //création d'un array de array pour stocker l'image et le type en plus de l'url et le nom
-        $arrayDataPokemon = array();
+        // exécution de la session
+        $pokemonGen = json_decode(curl_exec($curl), true);
+        // fermeture des ressources
+        curl_close($curl);
 
-        $apiCallsPokemon = curl_multi_init();
+        //Récupération des données de tout les pokémon de la génération
+        //Création d'un array pour stocker les URL de chaque pokémon
+        $nodes = array();
+
+        foreach($pokemonGen['pokemon_species'] as $k => $pokemonSpecy) {
+            //On récupère l'id dans arrayExplodeUrl[1]
+            $arrayExplodeUrl =  explode('https://pokeapi.co/api/v2/pokemon-species/', $pokemonSpecy['url']);
+            array_push($nodes, 'https://pokeapi.co/api/v2/pokemon/' . $arrayExplodeUrl[1]);
+        }
+
+        //On initialise un cURL multiple et on crée un array pour stocker ses résultats
         $curl_arr = array();
-        $speciesCount = count($arrayDataGen['pokemon_species']);
-        //foreach ($arrayDataGen['pokemon_species'] as $pokemonSpecy)
-        for($i = 0; $i < $speciesCount; $i++)
+        $master = curl_multi_init();
+
+        foreach($nodes as $k => $pokemonUrl)
         {
-            //On isole le numéro national car l'API renvoit parfois des erreurs avec le nom du pokémon
-            $arrayExplodeUrl =  explode('https://pokeapi.co/api/v2/pokemon-species/', $arrayDataGen['pokemon_species'][$i]['url']);
-            $url = 'https://pokeapi.co/api/v2/pokemon/' . $arrayExplodeUrl[1];
-            $curl_arr[$i] = curl_init($url);
-            curl_setopt($curl_arr[$i], CURLOPT_RETURNTRANSFER, true);
-            curl_multi_add_handle($apiCallsPokemon, $curl_arr[$i]);
-//            $nationalIdPokemon = $arrayExplodeUrl[1];
-//
-//            $response = $this->client->request(
-//                'GET',
-//                'https://pokeapi.co/api/v2/pokemon/' . $nationalIdPokemon
-//            );
-//            $arrayPokemon = $response->toArray();
-//            array_push($arrayDataPokemon, $arrayPokemon);
+            $curl_arr[$k] = curl_init($pokemonUrl);
+            curl_setopt($curl_arr[$k], CURLOPT_RETURNTRANSFER, true);
+            curl_multi_add_handle($master, $curl_arr[$k]);
         }
 
         do {
-            curl_multi_exec($apiCallsPokemon,$running);
-            curl_multi_select($apiCallsPokemon);
-            print_r($running . " ");
+            curl_multi_exec($master,$running);
         } while($running > 0);
 
-        print_r("\n");
-
-        for($j = 0; $j < $speciesCount; $j++)
+        //array pour stocker les résultats
+        $pokemonsData = array();
+        foreach($nodes as $k => $pokemonUrl)
         {
-            $data = curl_multi_getcontent($curl_arr[$j]);
-            print_r("2023");
-            print_r($data);
-            $json_data = json_encode($data);
-            //dd($json_data);
-            array_push($arrayDataPokemon, $json_data);
-//            $results = curl_multi_getcontent  ( $curl_arr[$i]  );
-//            echo( $i . "\n" . $results . "\n");
+            $pokemonsData[$k] = json_decode(curl_multi_getcontent  ($curl_arr[$k]), true);
         }
-        //curl_multi_close($apiCallsPokemon);
-        dd($arrayDataPokemon);
-        return $arrayDataPokemon;
+
+        return $pokemonsData;
     }
 
-    //fonction pour trier la liste de pokemon par un attribut en particulier
-    function sortGenerationPokemon($arrayPokemon, $field, $order=SORT_ASC)
+    //Fonction pour trier la liste de pokemon par un attribut en particulier
+    function sortGenerationPokemon($arrayPokemon, $field)
     {
         $new_array = array();
         $sortable_array = array();
@@ -125,15 +119,6 @@ class CallApiService
                 }
             }
 
-            switch ($order) {
-                case SORT_ASC:
-                    asort($sortable_array);
-                    break;
-                case SORT_DESC:
-                    arsort($sortable_array);
-                    break;
-            }
-
             foreach ($sortable_array as $k => $v) {
                 $new_array[$k] = $arrayPokemon[$k];
             }
@@ -141,4 +126,5 @@ class CallApiService
 
         return $new_array;
     }
+
 }

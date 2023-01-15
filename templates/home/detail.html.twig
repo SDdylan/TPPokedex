@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{pokemon['name']}}{% endblock %}
+{% block title %}{{pokemon['name']|capitalize}}{% endblock %}
 
 {#{% block header %}#}
 {#    <header class="py-1 bg-image-full d-flex" #}{# # style="background-image: url('{{ asset('img/home.jpeg') }}');"#}{#>#}
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="btn-back d-flex justify-content-center">
-                        <a class="btn btn-primary" href="/">Retour</a>
+                        <a class="btn btn-primary" href="/">Return</a>
                     </div>
                 </section>
             </div>

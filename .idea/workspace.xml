@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="added weight, height &amp; shape to the detail.html.twig&#10;added attributes-pokemon class to css&#10;added ExportController to make the command to export to csv">
+    <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="Cleaned twig pages and added comments&#10;Added README.md&#10;Added comments on ExportCsvCommand.php &amp; HomeController.php&#10;Installed curl extension &amp; amphp/http-client&#10;CallApiService.php now works with cURL to make API calls, deleted useless code, added comments">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ExportController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/ExportCsvCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ExportCsvCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/CallApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallApiService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/export/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/detail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +165,25 @@
       <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/uri-parser" />
+      <path value="$PROJECT_DIR$/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/amphp/windows-registry" />
+      <path value="$PROJECT_DIR$/vendor/amphp/socket" />
+      <path value="$PROJECT_DIR$/vendor/amphp/sync" />
+      <path value="$PROJECT_DIR$/vendor/amphp/process" />
+      <path value="$PROJECT_DIR$/vendor/amphp/serialization" />
+      <path value="$PROJECT_DIR$/vendor/amphp/http-client" />
+      <path value="$PROJECT_DIR$/vendor/amphp/parser" />
+      <path value="$PROJECT_DIR$/vendor/amphp/hpack" />
+      <path value="$PROJECT_DIR$/vendor/amphp/http" />
+      <path value="$PROJECT_DIR$/vendor/amphp/cache" />
+      <path value="$PROJECT_DIR$/vendor/amphp/dns" />
+      <path value="$PROJECT_DIR$/vendor/amphp/amp" />
+      <path value="$PROJECT_DIR$/vendor/amphp/byte-stream" />
+      <path value="$PROJECT_DIR$/vendor/daverandom/libdns" />
+      <path value="$PROJECT_DIR$/vendor/kelunik/certificate" />
     </include_path>
   </component>
   <component name="ProjectId" id="2KB3c4ioTATjNn7pw6ubEZD5VmO" />
@@ -195,7 +219,11 @@
       <updated>1673434224677</updated>
       <workItem from="1673434225864" duration="15286000" />
       <workItem from="1673516847855" duration="10646000" />
-      <workItem from="1673603523546" duration="24327000" />
+      <workItem from="1673603523546" duration="24417000" />
+      <workItem from="1673706812383" duration="1844000" />
+      <workItem from="1673708689495" duration="6733000" />
+      <workItem from="1673718733680" duration="645000" />
+      <workItem from="1673782384960" duration="14545000" />
     </task>
     <task id="LOCAL-00001" summary="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php">
       <created>1673450880778</created>
@@ -253,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673620930664</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Created command to export pokemon to csv&#10;Begin curl to call all pokemon at the same time&#10;added ext-curl&#10;Deleted ExportController.php">
+      <created>1673634079443</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673634079443</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +316,8 @@
     <MESSAGE value="added CSS class for the types&#10;modified CSS for the sorting buttons in the homepage&#10;Deleted useless code in CallApiService.php &amp; modified getGenerationDataPokemon to get data of pokemons by id and not by name anymore&#10;Simplified display of stat in detail.html.twig&#10;Modified bootstrap class in index.html.twig for a better display of the pokedex" />
     <MESSAGE value="added CSS for detail pokemon page&#10;modified display of detail page &amp; added a &quot;go back&quot; button" />
     <MESSAGE value="added weight, height &amp; shape to the detail.html.twig&#10;added attributes-pokemon class to css&#10;added ExportController to make the command to export to csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="added weight, height &amp; shape to the detail.html.twig&#10;added attributes-pokemon class to css&#10;added ExportController to make the command to export to csv" />
+    <MESSAGE value="Created command to export pokemon to csv&#10;Begin curl to call all pokemon at the same time&#10;added ext-curl&#10;Deleted ExportController.php" />
+    <MESSAGE value="Cleaned twig pages and added comments&#10;Added README.md&#10;Added comments on ExportCsvCommand.php &amp; HomeController.php&#10;Installed curl extension &amp; amphp/http-client&#10;CallApiService.php now works with cURL to make API calls, deleted useless code, added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned twig pages and added comments&#10;Added README.md&#10;Added comments on ExportCsvCommand.php &amp; HomeController.php&#10;Installed curl extension &amp; amphp/http-client&#10;CallApiService.php now works with cURL to make API calls, deleted useless code, added comments" />
   </component>
 </project>
