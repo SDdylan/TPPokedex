@@ -21,6 +21,7 @@ class ExportCsvCommand extends Command
     {
         $this->client = $client;
         parent::__construct();
+
     }
     
     protected function configure()
@@ -37,7 +38,7 @@ class ExportCsvCommand extends Command
         $arg1 = $input->getArgument('generation');
 
         //On verifie que l'utilisateur à choisi la bonne génération
-        if ($arg1<=9 && $arg1>=1) {
+        if ($arg1 <= 9 && $arg1 >= 1) {
             $io->note(sprintf('You passed an argument: %s', $arg1));
 
             //recupération de la génération

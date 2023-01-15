@@ -1,48 +1,45 @@
 body {
     background-color: lightgray;
 }
+
 .pokemon-home {
-    margin-bottom: 2em;
-}
-
-.info-pokemon {
-
+    margin-bottom: 2rem;
 }
 
 .detail-pokemon {
-    padding: 1em;
+    padding: 1rem;
 }
 
 .type-pokemon {
-    padding: 1em;
+    padding: 1rem;
 }
 
 .attributes-pokemon{
-    padding: 0.5em;
+    padding: 0.5rem;
     background-color: white;
-    border-radius: 0.7em;
+    border-radius: 0.7rem;
 }
 
 .stats-pokemon{
-    padding: 0.5em;
+    padding: 0.5rem;
     background-color: white;
-    border-radius: 0.7em;
+    border-radius: 0.7rem;
 }
 
 .description-pokemon {
-    padding: 0.5em;
+    padding: 0.5rem;
     font-style: italic;
     background-color: white;
     border-radius: 0.7em;
 }
 
 .img-pokemon{
-    border: 0.3em solid black;
+    border: 0.3rem solid black;
     border-radius: 0.7em;
 }
 
 .btn-back{
-    padding: 1em;
+    padding: 1rem;
 }
 
 .btn-sort {
@@ -51,140 +48,140 @@ body {
 }
 
 .type-normal {
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     background-color: #8E97A0;
     color: white;
     font-weight: bold;
 }
 
 .type-flying {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #A3BCEB;
     color: white;
     font-weight: bold;
 }
 
 .type-fighting {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #C0322A;
     color: white;
     font-weight: bold;
 }
 
 .type-ground {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #D47646;
     color: white;
     font-weight: bold;
 }
 
 .type-poison {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #A365C5;
     color: white;
     font-weight: bold;
 }
 
 .type-rock {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #C4B58A;
     color: white;
     font-weight: bold;
 }
 
 .type-bug {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #8FC02C;
     color: white;
     font-weight: bold
 }
 
 .type-ghost {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #735B9A;
     color: white;
     font-weight: bold
 }
 
 .type-steel {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #717172;
     color: white;
     font-weight: bold
 }
 
 .type-fire {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #F08030;
     color: white;
     font-weight: bold
 }
 
 .type-water {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #4D8FD5;
     color: white;
     font-weight: bold
 }
 
 .type-grass {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #60B953;
     color: white;
     font-weight: bold
 }
 
 .type-electric {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #F4D13B;
     color: black;
     font-weight: bold
 }
 
 .type-psychic {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #F85888;
     color: white;
     font-weight: bold
 }
 
 .type-ice {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #64B3AD;
     color: black;
     font-weight: bold
 }
 
 .type-dragon {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #5D1DF6;
     color: white;
     font-weight: bold
 }
 
 .type-dark {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #5A5264;
     color: white;
     font-weight: bold
 }
 
 .type-fairy {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #DB86DA;
     color: white;
     font-weight: bold
 }
 
 .type-unknown {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #D3D3D3;
     color: black;
     font-weight: bold
 }
 
 .type-shadow {
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     background-color: #333;
     color: white;
     font-weight: bold

@@ -32,7 +32,7 @@ Vous pouvez également utiliser Git avec un terminal à la racine d'un dossier d
 ```
 git clone https://github.com/SDdylan/TPPokedex.git
 ```
-Pour la prochaine étapes, vous aurez besoin de [**Composer**](https://getcomposer.org/download/), veillez à l'installer si vous ne disposez pas déjà de ce dernier sur votre système.  
+Pour la prochaine étape, vous aurez besoin de [**Composer**](https://getcomposer.org/download/), veillez à l'installer si vous ne disposez pas déjà de ce dernier sur votre système.  
 Installez ensuite les librairies de ce projet à l'aide d'un terminal à la racine de l'application avec la commande ci-dessous :
 ```
 composer install
@@ -47,7 +47,7 @@ Veillez dans un premier temps à changer la valeur de la génération dans le fi
 
 ## Commande
 
-La commande permettant de créer ou modifier un fichier CSV à la racine du projet contenant des données de tout les pokémons d'un génération est la suivante :
+La commande permettant de créer ou modifier un fichier CSV à la racine du projet contenant des données de tous les pokémons d'une génération est la suivante :
 ```````
 //$int correspond à la génération dont vous souhaitez extraire les données
 

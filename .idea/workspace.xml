@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="674fce8d-3c52-45d0-885f-4027a4e8ffd9" name="Changes" comment="Cleaned twig pages and added comments&#10;Added README.md&#10;Added comments on ExportCsvCommand.php &amp; HomeController.php&#10;Installed curl extension &amp; amphp/http-client&#10;CallApiService.php now works with cURL to make API calls, deleted useless code, added comments">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/ExportCsvCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ExportCsvCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/CallApiService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CallApiService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/detail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +231,7 @@
       <workItem from="1673706812383" duration="1844000" />
       <workItem from="1673708689495" duration="6733000" />
       <workItem from="1673718733680" duration="645000" />
-      <workItem from="1673782384960" duration="14545000" />
+      <workItem from="1673782384960" duration="18509000" />
     </task>
     <task id="LOCAL-00001" summary="Created CallApiService.php to use the PokeAPI with getGenerationPokemonData() to get pokemon data of the first generation (must be modified with a ENV variable)&#10;Added the CallApiService in the HomeController.php">
       <created>1673450880778</created>
@@ -288,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673634079443</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cleaned twig pages and added comments&#10;Added README.md&#10;Added comments on ExportCsvCommand.php &amp; HomeController.php&#10;Installed curl extension &amp; amphp/http-client&#10;CallApiService.php now works with cURL to make API calls, deleted useless code, added comments">
+      <created>1673807041142</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673807041142</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -2,20 +2,6 @@
 
 {% block title %}{{pokemon['name']|capitalize}}{% endblock %}
 
-{#{% block header %}#}
-{#    <header class="py-1 bg-image-full d-flex" #}{# # style="background-image: url('{{ asset('img/home.jpeg') }}');"#}{#>#}
-{#        <div class="container position-relative px-4 px-lg-5">#}
-{#            <div class="row gx-4 gx-lg-5 justify-content-center">#}
-{#                <div class="col-md-10 col-lg-8 col-xl-7" style="margin-top: 7em">#}
-{#                    <div class="text-center my-5">#}
-{#                        <div class="p-2"><h1 class="fw-bolder">{{ pokemon['name']|capitalize }} - Génération {{ generation }}</h1></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </header>#}
-{#{% endblock %}#}
-
 {% block body %}
     <article class="container">
         <div class="row">
@@ -39,8 +25,8 @@
                     <img class="img-pokemon" width="100%" src="{{ pokemon['sprites']['front_default'] }}" alt="pokemon-{{ pokemon['id'] }}"/>
                     <div class="type-pokemon row">
                         {% if pokemon['types'][1] is defined %}
-                            <p class="col-12 col-sm-6 type-{{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name']|upper }}</p>
-                            <p class="col-12 col-sm-6 type-{{ pokemon['types'][1]['type']['name'] }}">{{ pokemon['types'][1]['type']['name']|upper }}</p>
+                            <p class="col-6 type-{{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name']|upper }}</p>
+                            <p class="col-6 type-{{ pokemon['types'][1]['type']['name'] }}">{{ pokemon['types'][1]['type']['name']|upper }}</p>
                         {% else %}
                             <p class="col-12 type-{{ pokemon['types'][0]['type']['name'] }}">{{ pokemon['types'][0]['type']['name']|upper }}</p>
                         {% endif %}
